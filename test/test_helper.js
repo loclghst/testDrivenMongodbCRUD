@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
+mongoose.Promise = global.Promise;
 
-before(() =>{
+
+before((done) =>{
 
 	mongoose.connect('mongodb://localhost/users_test',{useNewUrlParser : true});
 	mongoose.connection
@@ -13,6 +15,7 @@ before(() =>{
 
 
 
+//run this before Mocha executes the tests
 
 beforeEach((done) =>{
 	mongoose.connection.collections.users.drop(() =>{
