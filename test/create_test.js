@@ -1,8 +1,8 @@
 const assert = require('assert');
 const User = require('../src/users.js');
 
-describe('Create an user', (done) =>{
-	it('Saves a user', () =>{
+describe('Create an user', () =>{
+	it('Saves a user', (done) =>{
 		const joe = new User({name : 'Joe'});
 		joe.save()
 		   .then(() =>{
