@@ -49,7 +49,7 @@ describe('Update test', () =>{
 			done);
 	});
 
-	it('Update the postCount of all users with the given criteria by 1', (done) =>{
+	xit('Update the postCount of all users with the given criteria by 1', (done) =>{
 		
 	// 	User.find({name: 'joe'})
 	// 		.then((users) =>{
