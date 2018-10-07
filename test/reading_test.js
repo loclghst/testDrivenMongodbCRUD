@@ -13,9 +13,16 @@ describe('Retrieve Users from the database' , () =>{
 		User.find({name: 'joe'})
 			.then((users) =>{
 				assert(users[0]._id.toString() === joe._id.toString());
-				
+
 				done();
 			});
+		});
 
+	it('Find an user with a particular id', (done) =>{
+		User.findOne({ _id: joe._id})
+			.then((user) =>{
+				assert(user.name === 'joe');
+				done();
+			});
 	});
 });
