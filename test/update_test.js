@@ -5,7 +5,7 @@ describe('Update test', () =>{
 	let joe;
 
 	beforeEach((done) =>{
-		joe = new User({name: 'joe', postCount: 0});
+		joe = new User({name: 'joe', likes: 0});
 		joe.save()
 		   .then(() => done());
 
@@ -49,7 +49,7 @@ describe('Update test', () =>{
 			done);
 	});
 
-	xit('Update the postCount of all users with the given criteria by 1', (done) =>{
+	it('Update the likes of all users with the given criteria by 1', (done) =>{
 		
 	// 	User.find({name: 'joe'})
 	// 		.then((users) =>{
@@ -64,10 +64,10 @@ describe('Update test', () =>{
 	// 		});	
 
 
-		User.update({name:'joe'}, {$inc :{postCount:1}})
+		User.update({name:'joe'}, {$inc :{likes:1}})
 			.then(() => User.findOne({name: 'joe'}))
 			.then((user) =>{
-				assert(user.postCount === 1);
+				assert(user.likes === 1);
 				done();
 			});
 	 });
