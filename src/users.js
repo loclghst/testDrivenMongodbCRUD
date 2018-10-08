@@ -23,6 +23,8 @@ UserSchema.virtual('postCount').get(function() {
 	return this.posts.length;
 });
 
+//Pre remove middleware to delete all the blog posts whem a user is removed.
+
 UserSchema.pre('remove', function(next){
 	//this points to model instance
 	const blogPost = mongoose.model('blogPost');
