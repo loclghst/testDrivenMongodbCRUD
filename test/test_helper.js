@@ -21,10 +21,12 @@ beforeEach((done) =>{
 	//mongoose normalizes the collection name to lower case so blogPosts collection becomes blogposts
 	const {users, comments, blogposts } = mongoose.connection.collections;
 
+	//mongoose cannot drop multiple collections at once. S we have to drop multiple collections one by one.
+
 	users.drop(() =>{
 		comments.drop(() =>{
 			blogposts.drop(()=>{
-				drop();
+				done();
 			});
 		});
 	});
