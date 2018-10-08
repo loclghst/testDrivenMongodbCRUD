@@ -18,8 +18,15 @@ before((done) =>{
 //run this before Mocha executes the tests
 
 beforeEach((done) =>{
-	mongoose.connection.collections.users.drop(() =>{
-		done();
+	//mongoose normalizes the collection name to lower case so blogPosts collection becomes blogposts
+	const {users, comments, blogposts } = mongoose.connection.collections;
+
+	users.drop(() =>{
+		comments.drop(() =>{
+			blogposts.drop(()=>{
+				drop();
+			});
+		});
 	});
 });
 
